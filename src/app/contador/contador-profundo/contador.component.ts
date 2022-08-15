@@ -18,8 +18,6 @@ export class ContadorComponent {
     contador: number = 0;
     base    : number = 5;
 
-    // constructor(){};
-
     acomular( valor: number): void {
         this.contador += valor;
     }    
