@@ -1,0 +1,22 @@
+<h1>Heroe component workds</h1>
+
+<h2>{{nombre}}</h2>
+
+<dl>
+    <td>Nombre: </td>
+    <dd>{{nombre}}</dd>
+
+    <td>Edad: </td>
+    <dd>{{edad}}</dd>
+
+    <td>Meotodo: </td>
+    <dd>{{obtenerInfo()}}</dd>
+
+    <td>Mayusculas</td>
+    <dd>{{nombreMayusculas}}</dd>
+</dl>
+
+<button (click)="cambiarNombre()">Cambiar nombre</button>
+<button (click)="cambiarEdad()">Cambiar la edad</button>
+
+<app-listado></app-listado>
