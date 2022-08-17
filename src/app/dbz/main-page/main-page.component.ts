@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Personaje {
-  nombre: string,
-  poder: number
-}
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -11,12 +7,25 @@ interface Personaje {
 })
 export class MainPageComponent {
 
+  personajes: Personaje[] = [
+    {
+      nombre: 'goku',
+      poder: 3000
+    }, 
+    {
+      nombre: 'vegeta',
+      poder: 1200
+    }
+  ]
+
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0
+    nombre: 'Personaje enviado...',
+    poder: 1111
   }
 
-  agregar() {
-    console.warn(this.nuevo)
+  agregarUnNuevoPersonaje(event: Personaje): void {
+    this.personajes.push(event);
+    console.log("Enviado desde el componente hijo AgregarComponent");
   }
+
 }
