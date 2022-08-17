@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,25 +8,19 @@ import { Personaje } from '../interfaces/dbz.interface';
 })
 export class MainPageComponent {
 
-  personajes: Personaje[] = [
-    {
-      nombre: 'goku',
-      poder: 3000
-    }, 
-    {
-      nombre: 'vegeta',
-      poder: 1200
-    }
-  ]
+  constructor(
+    private dbzService: DbzService
+  ){}
 
   nuevo: Personaje = {
     nombre: 'Personaje enviado...',
     poder: 1111
   }
 
-  agregarUnNuevoPersonaje(event: Personaje): void {
-    this.personajes.push(event);
-    console.log("Enviado desde el componente hijo AgregarComponent");
-  }
+  // Asi lo hice usando @output
+  // agregarUnNuevoPersonaje(event: Personaje): void {
+  //   this.personajes.push(event);
+  //   console.log("Enviado desde el componente hijo AgregarComponent");
+  // }
 
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-personajes',
@@ -8,9 +9,17 @@ import { Personaje } from '../interfaces/dbz.interface';
 })
 export class PersonajesComponent implements OnInit {
 
-  @Input() personajes: Personaje[] =[];
+  // Solia recibir los personajes asi desde main-page pero lo cambie por un service
+  // @Input() personajes: Personaje[] =[];
 
-  constructor() { }
+  constructor(
+    private dbzService: DbzService
+  ) { }
+
+  // implementando el service
+  get personajes(): Personaje[] {
+    return this.dbzService.personajes
+  }
 
   ngOnInit(): void {
   }
